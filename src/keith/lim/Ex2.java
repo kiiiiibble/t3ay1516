@@ -31,10 +31,10 @@ public class Ex2 {
 
     }
 
-
+    System.out.println("\n");
     // Exercise 2.2
     // Implement a primality test of numbers from 2 to maxNumber
-    int maxNumber = 1000;
+
     // A number x is prime iff x >= 2, and its only factors are 1 and itself
     // Tips:
     // 1. To check if a number d divides x: (x % d == 0)
@@ -48,15 +48,22 @@ public class Ex2 {
     // Determine the max value of d that minimizes the number of division tests
     // 3. Optional: all even numbers except 2 are automatically not prime
     // 2 is the only even prime number
-    int prime;
-    for (i = 0; i <= maxNumber; i++) {
-      if (i > 0 && (i % 2 == 0) && (i % 3 == 0) && (i % 5 == 0) && (i % 7 == 0) && (i % 9 == 0) && (i % 11 == 0)) {
-        prime = i;
-      } else {
-        prime = 0;
+    int maxNumber = 1000;
+    int prime = 0, j;
+    for (i = 1; i <= maxNumber; i++) {
+      prime = i;
+
+      for (j = 2; j < (Math.sqrt(i)); j++) {
+
+        if(i%j == 0) {
+          prime = 0;
+        }
+
       }
 
-      System.out.println(prime);
-    }
+      if (prime != 0) {
+        System.out.println(prime);
+      }
+      }
   }
 }
